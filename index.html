@@ -118,6 +118,9 @@ footer{border-top:1px solid var(--out);margin-top:24px;padding:28px 16px}
 .plus{position:absolute;right:2px;bottom:2px;width:38px;height:38px;border-radius:50%;background:#20d5ec;color:#fff;font:600 26px/32px var(--f-d);text-align:center;text-decoration:none;border:3px solid #0b0b0d}
 .note{background:rgba(48,48,52,.92);color:#d4d4da;border-radius:18px;padding:10px 16px;font-size:14px;max-width:160px;text-align:center;line-height:1.3}
 @media (max-width:640px){.hero{grid-template-columns:1fr;min-height:420px;align-content:space-between;padding:20px;row-gap:20px}.hero-side{order:-1;justify-self:end}.note{display:none}.avatar-wrap,.hero .avatar{width:104px;height:104px}.plus{width:30px;height:30px;font-size:20px;line-height:24px}#stats.pstats{gap:12px 22px}.pst b{font-size:24px}}
+.upd{color:#b8b8c0;font-size:12px;margin-top:10px}
+.q{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit}.q b{font-family:var(--f-d);font-weight:600}
+.btn:disabled{opacity:.5;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -135,6 +138,7 @@ footer{border-top:1px solid var(--out);margin-top:24px;padding:28px 16px}
         <h1>Thứ High<span class="caret" aria-hidden="true"></span></h1>
         <div class="handle">@thu.highhh</div>
         <div class="pstats" id="stats"></div>
+        <div class="upd" id="upd"></div>
         <p data-i18n="home.tag"></p>
         <div class="row"><a class="btn" href="https://www.tiktok.com/@thu.highhh" target="_blank" rel="noopener" data-i18n="btn.follow"></a><button class="btn t" data-go="creators" data-i18n="btn.profile"></button></div>
         <div class="chips"><span class="st" data-i18n="home.status"></span></div>
@@ -144,8 +148,14 @@ footer{border-top:1px solid var(--out);margin-top:24px;padding:28px 16px}
         <div class="avatar-wrap"><div class="avatar"></div><a class="plus" href="https://www.tiktok.com/@thu.highhh" target="_blank" rel="noopener" aria-label="TikTok">+</a></div>
       </div>
     </div>
+    <h2 data-i18n="home.quick"></h2>
+    <div class="grid" id="quick">
+      <a class="card q" href="#tiktok"><b data-i18n="q.search"></b><span class="muted" data-i18n="q.searchd"></span></a>
+      <a class="card q" href="https://www.tiktok.com/@thu.highhh" target="_blank" rel="noopener"><b>TikTok</b><span class="muted" data-i18n="q.tt"></span></a>
+      <div class="card q"><b>Discord</b><span class="muted" data-i18n="soon"></span></div>
+    </div>
     <h2 data-i18n="home.featured"></h2>
-    <div class="empty"><i>🎬</i><span data-i18n="empty.videos"></span></div>
+    <div id="feat"><div class="empty"><i>🎬</i><span data-i18n="empty.videos"></span></div></div>
   </section>
 
   <section id="discover">
@@ -195,7 +205,7 @@ vi:{'nav.home':'Trang chủ','nav.discover':'Khám phá','nav.creators':'Ngườ
 'stats.title':'Thống kê','stats.followers':'Người theo dõi','stats.likes':'Lượt thích','stats.videos':'Video',
 'search.ph':'Tìm kiếm liên kết, nền tảng…','rank.title':'Xếp hạng','creator.bio':'Chào mừng bạn đến với trang cá nhân của mình. Theo dõi mình trên TikTok để xem video mới nhất nhé!',
 'empty.videos':'Chưa có video nổi bật.','empty.rank':'Chưa có xếp hạng nào.','empty.search':'Không tìm thấy kết quả.',
-'soon':'Sắp ra mắt','home.status':'Discord sắp ra mắt','home.note':'Bạn đang nghĩ gì…','stats.following':'Đã follow','nav.tiktok':'TikTok','tt.title':'Tìm kênh TikTok','tt.ph':'Nhập tên người dùng TikTok…','tt.btn':'Tìm','tt.hint':'Nhập tên người dùng của một kênh đã theo dõi, ví dụ thu.highhh.','tt.loading':'Đang tải dữ liệu…','tt.median':'Lượt xem trung vị','tt.est':'Ước tính 1 bài PR','tt.latest':'Video mới nhất','tt.novid':'Chưa có video nào.','stats.views':'lượt xem','e.bad':'Tên người dùng không hợp lệ.','e.nf':'Không tìm thấy kênh này.','e.net':'Không lấy được dữ liệu, hãy thử lại sau.','e.nodata':'Chưa có dữ liệu cho kênh này. Hãy thêm kênh vào accounts.txt.','tt.updated':'Cập nhật','n.lang':'Đã chuyển sang Tiếng Việt','n.copied':'Đã sao chép tên người dùng','n.soon':'Server Discord sắp ra mắt!',
+'soon':'Sắp ra mắt','home.status':'Discord sắp ra mắt','home.note':'Bạn đang nghĩ gì…','stats.following':'Đã follow','nav.tiktok':'TikTok','tt.title':'Tìm kênh TikTok','tt.ph':'Nhập tên người dùng TikTok…','tt.btn':'Tìm','tt.hint':'Nhập tên người dùng bất kỳ. Mỗi lượt tìm cách nhau 3 phút.','tt.loading':'Đang tải dữ liệu…','tt.median':'Lượt xem trung vị','tt.est':'Ước tính 1 bài PR','tt.latest':'Video mới nhất','tt.novid':'Chưa có video nào.','stats.views':'lượt xem','e.bad':'Tên người dùng không hợp lệ.','e.nf':'Không tìm thấy kênh này.','e.net':'Không lấy được dữ liệu, hãy thử lại sau.','e.nodata':'Không tìm thấy dữ liệu cho kênh này.','tt.updated':'Cập nhật','tt.wait':'Chờ {t}','e.wait':'Bạn có thể tìm lại sau {t}.','home.quick':'Truy cập nhanh','q.search':'Tìm kênh TikTok','q.searchd':'Xem thống kê của bất kỳ kênh nào','q.tt':'Xem video mới nhất','n.lang':'Đã chuyển sang Tiếng Việt','n.copied':'Đã sao chép tên người dùng','n.soon':'Server Discord sắp ra mắt!',
 'e.copy':'Không thể sao chép. Hãy thử lại.','set.lang':'Ngôn ngữ','set.langd':'Chọn ngôn ngữ hiển thị','set.theme':'Giao diện','set.themed':'Sáng, tối hoặc theo hệ thống',
 'theme.auto':'Tự động','theme.light':'Sáng','theme.dark':'Tối','foot.made':'Được tạo với ♥ bởi Thứ High','foot.date':'Hôm nay'},
 en:{'nav.home':'Home','nav.discover':'Discover','nav.creators':'Creators','nav.settings':'Settings',
@@ -204,7 +214,7 @@ en:{'nav.home':'Home','nav.discover':'Discover','nav.creators':'Creators','nav.s
 'stats.title':'Statistics','stats.followers':'Followers','stats.likes':'Likes','stats.videos':'Videos',
 'search.ph':'Search links, platforms…','rank.title':'Rankings','creator.bio':'Welcome to my personal page. Follow me on TikTok to catch my latest videos!',
 'empty.videos':'No featured videos yet.','empty.rank':'No rankings yet.','empty.search':'No results found.',
-'soon':'Coming soon','home.status':'Discord coming soon','home.note':'What’s on your mind…','stats.following':'Following','nav.tiktok':'TikTok','tt.title':'Search TikTok','tt.ph':'Enter a TikTok username…','tt.btn':'Search','tt.hint':'Enter the username of a tracked channel, e.g. thu.highhh.','tt.loading':'Loading data…','tt.median':'Median views','tt.est':'Est. price per sponsored post','tt.latest':'Latest videos','tt.novid':'No videos yet.','stats.views':'views','e.bad':'Invalid username.','e.nf':'Channel not found.','e.net':'Couldn’t get data, please try again later.','e.nodata':'No data for this channel yet. Add it to accounts.txt.','tt.updated':'Updated','n.lang':'Switched to English','n.copied':'Username copied','n.soon':'Discord server is coming soon!',
+'soon':'Coming soon','home.status':'Discord coming soon','home.note':'What’s on your mind…','stats.following':'Following','nav.tiktok':'TikTok','tt.title':'Search TikTok','tt.ph':'Enter a TikTok username…','tt.btn':'Search','tt.hint':'Enter any username. Searches are 3 minutes apart.','tt.loading':'Loading data…','tt.median':'Median views','tt.est':'Est. price per sponsored post','tt.latest':'Latest videos','tt.novid':'No videos yet.','stats.views':'views','e.bad':'Invalid username.','e.nf':'Channel not found.','e.net':'Couldn’t get data, please try again later.','e.nodata':'No data found for this channel.','tt.updated':'Updated','tt.wait':'Wait {t}','e.wait':'You can search again in {t}.','home.quick':'Quick access','q.search':'Search TikTok','q.searchd':'Stats for any channel','q.tt':'Watch the latest videos','n.lang':'Switched to English','n.copied':'Username copied','n.soon':'Discord server is coming soon!',
 'e.copy':'Couldn’t copy. Please try again.','set.lang':'Language','set.langd':'Choose the display language','set.theme':'Appearance','set.themed':'Light, dark or system',
 'theme.auto':'Auto','theme.light':'Light','theme.dark':'Dark','foot.made':'Made with ♥ by Thứ High','foot.date':'Today'}};
 let lang='vi',theme='light';
@@ -223,7 +233,7 @@ function apply(){document.documentElement.lang=lang;
  $$('[data-lang]').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
  $$('[data-theme]').forEach(b=>b.classList.toggle('on',b.dataset.theme===theme));
  $('#date').textContent=t('foot.date')+': '+new Intl.DateTimeFormat(loc(),{dateStyle:'long'}).format(new Date());
- renderStats();renderResults();renderTT()}
+ renderStats();renderResults();renderTT();renderFeat();renderUpd();tick()}
 function setLang(l,quiet){lang=l;try{localStorage.setItem('thusite.lang',l)}catch(e){}apply();if(!quiet)toast(t('n.lang'))}
 function setTheme(x){theme=x;try{localStorage.setItem('thusite.theme',x)}catch(e){}
  if(x==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.dataset.theme=x;apply()}
@@ -235,22 +245,34 @@ $$('[data-go]').forEach(b=>b.onclick=()=>location.hash=b.dataset.go);
 $('#q').oninput=renderResults;
 $('#dc').onclick=()=>toast(t('n.soon'));
 $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText('@thu.highhh');toast(t('n.copied'))}catch(e){toast(t('e.copy'),true)}};
+const WORKER_URL=''; // dán URL Cloudflare Worker / paste your Cloudflare Worker URL
 const DATA_URL='data/tiktok.json'; // do GitHub Actions cập nhật / updated by GitHub Actions
 let DB=null;
 async function loadDB(){try{const r=await fetch(DATA_URL,{cache:'no-cache'});if(r.ok)DB=await r.json()}catch(e){}return DB}
 const esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
 let tt={s:'idle'};
+let next=0;try{next=+localStorage.getItem('thusite.next')||0}catch(e){}
+const fmt=n=>Math.floor(n/60)+':'+String(n%60).padStart(2,'0');
+function tick(){const b=$('#ttb');if(!b)return;const l=Math.ceil((next-Date.now())/1000);b.disabled=l>0;b.textContent=l>0?t('tt.wait').replace('{t}',fmt(l)):t('tt.btn')}
+setInterval(tick,1000);
 async function searchTT(){const u=$('#ttq').value.trim().replace(/^@/,'').toLowerCase();
+ const l=Math.ceil((next-Date.now())/1000);if(l>0)return toast(t('e.wait').replace('{t}',fmt(l)),true);
  if(!/^[\w.]{2,24}$/.test(u)){tt={s:'err',e:'e.bad'};return renderTT()}
+ next=Date.now()+180000;try{localStorage.setItem('thusite.next',next)}catch(e){}tick();
  tt={s:'load'};renderTT();
- const db=DB||await loadDB(),d=db&&db.accounts&&db.accounts[u];
- tt=!db?{s:'err',e:'e.net'}:d?{s:'ok',d,u:db.updated}:{s:'err',e:'e.nodata'};
+ let d=null,ok=true,upd=null;
+ if(WORKER_URL){try{const r=await fetch(WORKER_URL+'?user='+encodeURIComponent(u));if(r.ok)d=await r.json();else ok=r.status===404}catch(e){ok=false}}
+ else{const db=DB||await loadDB();ok=!!db;d=db&&db.accounts&&db.accounts[u];if(db)upd=db.updated}
+ tt=!ok?{s:'err',e:'e.net'}:d?{s:'ok',d,u:d.updated||upd}:{s:'err',e:'e.nodata'};
  renderTT()}
+function renderFeat(){const a=DB&&DB.accounts&&DB.accounts['thu.highhh'],v=a&&a.videos;if(!v||!v.length)return;const nf=new Intl.NumberFormat(loc()),df=new Intl.DateTimeFormat(loc(),{dateStyle:'medium'});
+ $('#feat').innerHTML=[...v].sort((x,y)=>y.views-x.views).slice(0,3).map(x=>`<a class="item" href="${esc(x.url)}" target="_blank" rel="noopener"><div class="ic">▶</div><div><b>${nf.format(x.views)} ${t('stats.views')} · ${nf.format(x.likes)} ${t('stats.likes')}</b><small>${df.format(new Date(x.time*1000))}</small></div></a>`).join('')}
+function renderUpd(){const e=$('#upd');if(e&&DB&&DB.updated)e.textContent=t('tt.updated')+': '+new Intl.DateTimeFormat(loc(),{dateStyle:'medium',timeStyle:'short'}).format(new Date(DB.updated))}
 function renderTT(){const el=$('#ttres');if(!el)return;
  const nf=new Intl.NumberFormat(loc()),box=(i,m)=>`<div class="empty"><i>${i}</i>${m}</div>`;
  if(tt.s==='idle')return el.innerHTML=box('🔎',t('tt.hint'));
  if(tt.s==='load')return el.innerHTML=box('⏳',t('tt.loading'));
- if(tt.s==='err')return el.innerHTML=box('⚠️',t(tt.e));
+ if(tt.s==='err')return el.innerHTML=box('⚠️',t(tt.e).replace('{t}',tt.x||''));
  const d=tt.d,p=d.profile||{},df=new Intl.DateTimeFormat(loc(),{dateStyle:'medium'});
  const money=d.estUsd==null?'—':lang==='vi'?new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(d.estVnd):new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(d.estUsd);
  el.innerHTML=`<div class="card"><h1 style="font-size:28px;margin:0">${esc(p.nickname||d.username)}</h1><p class="muted">@${esc(d.username)}</p></div>
@@ -261,7 +283,7 @@ const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEac
 function reveal(){if(!io)return;$$('.hero,.card,.item,.empty,.set,main h2').forEach((e,i)=>{if(e.dataset.r)return;e.dataset.r=1;e.style.transitionDelay=Math.min(i%6,5)*60+'ms';e.classList.add('reveal');io.observe(e)})}
 new MutationObserver(()=>requestAnimationFrame(reveal)).observe($('main'),{childList:true,subtree:true});reveal();
 addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card,.item');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}});
-loadDB().then(db=>{const p=db&&db.accounts&&db.accounts['thu.highhh']&&db.accounts['thu.highhh'].profile;if(p){STATS.followers=p.followers;STATS.likes=p.likes;if(p.following!=null)STATS.following=p.following;renderStats()}});
+loadDB().then(db=>{const p=db&&db.accounts&&db.accounts['thu.highhh']&&db.accounts['thu.highhh'].profile;if(p){STATS.followers=p.followers;STATS.likes=p.likes;if(p.following!=null)STATS.following=p.following;renderStats()}renderFeat();renderUpd()});
 addEventListener('hashchange',route);
 setTheme(theme);setLang(lang,true);route();
 </script>
