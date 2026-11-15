@@ -1,18 +1,54 @@
 {
- "updated": "2026-11-15T00:00:00+00:00",
+ "updated": "2026-11-15T10:08:57.794244+00:00",
  "accounts": {
   "thu.highhh": {
    "username": "thu.highhh",
    "profile": {
     "nickname": "Thứ High",
-    "followers": 0,
-    "following": 0,
-    "likes": 0
+    "followers": 185,
+    "following": 41,
+    "likes": 4277
    },
-   "videos": [],
-   "medianViews": null,
-   "estUsd": null,
-   "estVnd": null
+   "videos": [
+    {
+     "id": "7708185295115554055",
+     "views": 20100,
+     "likes": 1315,
+     "time": 1794701754,
+     "url": "https://www.tiktok.com/@thu.highhh/video/7708185295115554055"
+    },
+    {
+     "id": "7706792526119701780",
+     "views": 22000,
+     "likes": 1471,
+     "time": 1794377471,
+     "url": "https://www.tiktok.com/@thu.highhh/video/7706792526119701780"
+    },
+    {
+     "id": "7706108126239460629",
+     "views": 15600,
+     "likes": 1182,
+     "time": 1794218120,
+     "url": "https://www.tiktok.com/@thu.highhh/video/7706108126239460629"
+    },
+    {
+     "id": "7705745235468487956",
+     "views": 3133,
+     "likes": 253,
+     "time": 1794133628,
+     "url": "https://www.tiktok.com/@thu.highhh/video/7705745235468487956"
+    },
+    {
+     "id": "7705686748537392404",
+     "views": 1763,
+     "likes": 56,
+     "time": 1794120012,
+     "url": "https://www.tiktok.com/@thu.highhh/video/7705686748537392404"
+    }
+   ],
+   "medianViews": 15600,
+   "estUsd": 156,
+   "estVnd": 4056000
   }
  }
 }
