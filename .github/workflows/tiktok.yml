@@ -1,0 +1,32 @@
+name: Update TikTok data
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    paths: ["accounts.txt"]
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install aiohttp
+      - run: python fetch_tiktok.py
+        env:
+          TT_PROXY: ${{ secrets.TT_PROXY }}
+          USD_VND: "26000"
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tiktok.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update TikTok data"
+            git push
+          fi
+          
