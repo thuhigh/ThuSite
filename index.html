@@ -245,7 +245,7 @@ $$('[data-go]').forEach(b=>b.onclick=()=>location.hash=b.dataset.go);
 $('#q').oninput=renderResults;
 $('#dc').onclick=()=>toast(t('n.soon'));
 $('#copy').onclick=async()=>{try{await navigator.clipboard.writeText('@thu.highhh');toast(t('n.copied'))}catch(e){toast(t('e.copy'),true)}};
-const WORKER_URL=''; // dán URL Cloudflare Worker / paste your Cloudflare Worker URL
+const WORKER_URL='https://workers.thu-high-01.workers.dev/'; // dán URL Cloudflare Worker / paste your Cloudflare Worker URL
 const DATA_URL='data/tiktok.json'; // do GitHub Actions cập nhật / updated by GitHub Actions
 let DB=null;
 async function loadDB(){try{const r=await fetch(DATA_URL,{cache:'no-cache'});if(r.ok)DB=await r.json()}catch(e){}return DB}
