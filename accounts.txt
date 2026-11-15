@@ -1,0 +1,2 @@
+# mỗi dòng một kênh / one channel per line
+thu.highhh
