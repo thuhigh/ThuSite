@@ -1,124 +1,124 @@
 {
- "updated": "2026-11-15T18:05:58.450847+00:00",
+ "updated": "2026-11-16T03:29:49.937882+00:00",
  "accounts": {
   "thu.highhh": {
    "username": "thu.highhh",
    "profile": {
     "nickname": "Thứ High",
-    "followers": 226,
+    "followers": 279,
     "following": 41,
-    "likes": 5834
+    "likes": 7992
    },
    "videos": [
     {
      "id": "7708185295115554055",
-     "views": 37700,
-     "likes": 2788,
+     "views": 54900,
+     "likes": 4271,
      "time": 1794701754,
      "url": "https://www.tiktok.com/@thu.highhh/video/7708185295115554055"
     },
     {
      "id": "7706792526119701780",
-     "views": 22400,
-     "likes": 1496,
+     "views": 22600,
+     "likes": 1507,
      "time": 1794377471,
      "url": "https://www.tiktok.com/@thu.highhh/video/7706792526119701780"
     },
     {
      "id": "7706108126239460629",
-     "views": 16500,
-     "likes": 1241,
+     "views": 22200,
+     "likes": 1901,
      "time": 1794218120,
      "url": "https://www.tiktok.com/@thu.highhh/video/7706108126239460629"
     },
     {
      "id": "7705745235468487956",
-     "views": 3190,
-     "likes": 253,
+     "views": 3215,
+     "likes": 254,
      "time": 1794133628,
      "url": "https://www.tiktok.com/@thu.highhh/video/7705745235468487956"
     },
     {
      "id": "7705686748537392404",
-     "views": 1820,
-     "likes": 56,
+     "views": 1848,
+     "likes": 59,
      "time": 1794120012,
      "url": "https://www.tiktok.com/@thu.highhh/video/7705686748537392404"
     }
    ],
-   "medianViews": 16500,
-   "estUsd": 165,
-   "estVnd": 4290000
+   "medianViews": 22200,
+   "estUsd": 222,
+   "estVnd": 5772000
   },
   "ekppp": {
    "username": "ekppp",
    "profile": {
     "nickname": "「 𝑒𝑘𝑝 」",
-    "followers": 48600,
+    "followers": 48800,
     "following": 148,
     "likes": 3300000
    },
    "videos": [
     {
      "id": "7708059653950803201",
-     "views": 119500,
-     "likes": 12500,
+     "views": 134500,
+     "likes": 14000,
      "time": 1794672566,
      "url": "https://www.tiktok.com/@ekppp/video/7708059653950803201"
     },
     {
      "id": "7706912111418428692",
-     "views": 242100,
-     "likes": 19000,
+     "views": 251000,
+     "likes": 19500,
      "time": 1794405301,
      "url": "https://www.tiktok.com/@ekppp/video/7706912111418428692"
     },
     {
      "id": "7705459880223755528",
      "views": 1600000,
-     "likes": 232100,
+     "likes": 234600,
      "time": 1794067188,
      "url": "https://www.tiktok.com/@ekppp/video/7705459880223755528"
     },
     {
      "id": "7704328182639496466",
-     "views": 55500,
-     "likes": 3847,
+     "views": 56300,
+     "likes": 3868,
      "time": 1793803687,
      "url": "https://www.tiktok.com/@ekppp/video/7704328182639496466"
     },
     {
      "id": "7703219607959620884",
      "views": 1400000,
-     "likes": 300800,
+     "likes": 301500,
      "time": 1793545576,
      "url": "https://www.tiktok.com/@ekppp/video/7703219607959620884"
     },
     {
      "id": "7702864607437704469",
-     "views": 424900,
-     "likes": 31100,
+     "views": 431400,
+     "likes": 31300,
      "time": 1793462918,
      "url": "https://www.tiktok.com/@ekppp/video/7702864607437704469"
     },
     {
      "id": "7702492713953873172",
-     "views": 808000,
-     "likes": 110800,
+     "views": 817600,
+     "likes": 111700,
      "time": 1793376340,
      "url": "https://www.tiktok.com/@ekppp/video/7702492713953873172"
     },
     {
      "id": "7702111788082679060",
-     "views": 311800,
-     "likes": 31500,
+     "views": 313100,
+     "likes": 31600,
      "time": 1793287650,
      "url": "https://www.tiktok.com/@ekppp/video/7702111788082679060"
     }
    ],
-   "medianViews": 368350,
-   "estUsd": 3684,
-   "estVnd": 95771000
+   "medianViews": 372250,
+   "estUsd": 3722,
+   "estVnd": 96785000
   },
   "memaybeo50": {
    "username": "memaybeo50",
@@ -131,8 +131,8 @@
    "videos": [
     {
      "id": "7708316400493939986",
-     "views": 2457,
-     "likes": 251,
+     "views": 2654,
+     "likes": 270,
      "time": 1794732281,
      "url": "https://www.tiktok.com/@memaybeo50/video/7708316400493939986"
     },
@@ -145,21 +145,21 @@
     },
     {
      "id": "7706764005578198290",
-     "views": 10900,
-     "likes": 1061,
+     "views": 11000,
+     "likes": 1067,
      "time": 1794370833,
      "url": "https://www.tiktok.com/@memaybeo50/video/7706764005578198290"
     },
     {
      "id": "7704181783213968648",
-     "views": 14300,
+     "views": 14400,
      "likes": 1071,
      "time": 1793769611,
      "url": "https://www.tiktok.com/@memaybeo50/video/7704181783213968648"
     },
     {
      "id": "7702020235892788487",
-     "views": 7788,
+     "views": 7801,
      "likes": 267,
      "time": 1793266339,
      "url": "https://www.tiktok.com/@memaybeo50/video/7702020235892788487"
@@ -173,7 +173,7 @@
     },
     {
      "id": "7697945220058680592",
-     "views": 196300,
+     "views": 196400,
      "likes": 13000,
      "time": 1792317548,
      "url": "https://www.tiktok.com/@memaybeo50/video/7697945220058680592"
@@ -186,9 +186,9 @@
      "url": "https://www.tiktok.com/@memaybeo50/video/7695340110388169991"
     }
    ],
-   "medianViews": 12200,
+   "medianViews": 12250,
    "estUsd": 122,
-   "estVnd": 3172000
+   "estVnd": 3185000
   }
  }
 }
