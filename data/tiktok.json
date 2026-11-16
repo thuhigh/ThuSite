@@ -1,124 +1,131 @@
 {
- "updated": "2026-11-16T03:29:49.937882+00:00",
+ "updated": "2026-11-16T14:09:02.971108+00:00",
  "accounts": {
   "thu.highhh": {
    "username": "thu.highhh",
    "profile": {
     "nickname": "Thứ High",
-    "followers": 279,
-    "following": 41,
-    "likes": 7992
+    "followers": 309,
+    "following": 47,
+    "likes": 10400
    },
    "videos": [
     {
+     "id": "7708728489750433032",
+     "views": 2067,
+     "likes": 125,
+     "time": 1794828225,
+     "url": "https://www.tiktok.com/@thu.highhh/video/7708728489750433032"
+    },
+    {
      "id": "7708185295115554055",
-     "views": 54900,
-     "likes": 4271,
+     "views": 71400,
+     "likes": 6166,
      "time": 1794701754,
      "url": "https://www.tiktok.com/@thu.highhh/video/7708185295115554055"
     },
     {
      "id": "7706792526119701780",
-     "views": 22600,
-     "likes": 1507,
+     "views": 23000,
+     "likes": 1528,
      "time": 1794377471,
      "url": "https://www.tiktok.com/@thu.highhh/video/7706792526119701780"
     },
     {
      "id": "7706108126239460629",
-     "views": 22200,
-     "likes": 1901,
+     "views": 24400,
+     "likes": 2224,
      "time": 1794218120,
      "url": "https://www.tiktok.com/@thu.highhh/video/7706108126239460629"
     },
     {
      "id": "7705745235468487956",
-     "views": 3215,
-     "likes": 254,
+     "views": 3282,
+     "likes": 255,
      "time": 1794133628,
      "url": "https://www.tiktok.com/@thu.highhh/video/7705745235468487956"
     },
     {
      "id": "7705686748537392404",
-     "views": 1848,
-     "likes": 59,
+     "views": 1891,
+     "likes": 61,
      "time": 1794120012,
      "url": "https://www.tiktok.com/@thu.highhh/video/7705686748537392404"
     }
    ],
-   "medianViews": 22200,
-   "estUsd": 222,
-   "estVnd": 5772000
+   "medianViews": 13141,
+   "estUsd": 131,
+   "estVnd": 3416660
   },
   "ekppp": {
    "username": "ekppp",
    "profile": {
     "nickname": "「 𝑒𝑘𝑝 」",
-    "followers": 48800,
+    "followers": 49000,
     "following": 148,
     "likes": 3300000
    },
    "videos": [
     {
      "id": "7708059653950803201",
-     "views": 134500,
-     "likes": 14000,
+     "views": 150400,
+     "likes": 15300,
      "time": 1794672566,
      "url": "https://www.tiktok.com/@ekppp/video/7708059653950803201"
     },
     {
      "id": "7706912111418428692",
-     "views": 251000,
-     "likes": 19500,
+     "views": 275700,
+     "likes": 20800,
      "time": 1794405301,
      "url": "https://www.tiktok.com/@ekppp/video/7706912111418428692"
     },
     {
      "id": "7705459880223755528",
      "views": 1600000,
-     "likes": 234600,
+     "likes": 237400,
      "time": 1794067188,
      "url": "https://www.tiktok.com/@ekppp/video/7705459880223755528"
     },
     {
      "id": "7704328182639496466",
-     "views": 56300,
-     "likes": 3868,
+     "views": 57400,
+     "likes": 3893,
      "time": 1793803687,
      "url": "https://www.tiktok.com/@ekppp/video/7704328182639496466"
     },
     {
      "id": "7703219607959620884",
      "views": 1400000,
-     "likes": 301500,
+     "likes": 302000,
      "time": 1793545576,
      "url": "https://www.tiktok.com/@ekppp/video/7703219607959620884"
     },
     {
      "id": "7702864607437704469",
-     "views": 431400,
-     "likes": 31300,
+     "views": 439500,
+     "likes": 31600,
      "time": 1793462918,
      "url": "https://www.tiktok.com/@ekppp/video/7702864607437704469"
     },
     {
      "id": "7702492713953873172",
-     "views": 817600,
-     "likes": 111700,
+     "views": 827800,
+     "likes": 112500,
      "time": 1793376340,
      "url": "https://www.tiktok.com/@ekppp/video/7702492713953873172"
     },
     {
      "id": "7702111788082679060",
-     "views": 313100,
-     "likes": 31600,
+     "views": 314900,
+     "likes": 31700,
      "time": 1793287650,
      "url": "https://www.tiktok.com/@ekppp/video/7702111788082679060"
     }
    ],
-   "medianViews": 372250,
-   "estUsd": 3722,
-   "estVnd": 96785000
+   "medianViews": 377200,
+   "estUsd": 3772,
+   "estVnd": 98072000
   },
   "memaybeo50": {
    "username": "memaybeo50",
@@ -131,64 +138,64 @@
    "videos": [
     {
      "id": "7708316400493939986",
-     "views": 2654,
-     "likes": 270,
+     "views": 3300,
+     "likes": 307,
      "time": 1794732281,
      "url": "https://www.tiktok.com/@memaybeo50/video/7708316400493939986"
     },
     {
      "id": "7707128654945373458",
-     "views": 13500,
-     "likes": 900,
+     "views": 13800,
+     "likes": 911,
      "time": 1794455736,
      "url": "https://www.tiktok.com/@memaybeo50/video/7707128654945373458"
     },
     {
      "id": "7706764005578198290",
-     "views": 11000,
-     "likes": 1067,
+     "views": 11200,
+     "likes": 1078,
      "time": 1794370833,
      "url": "https://www.tiktok.com/@memaybeo50/video/7706764005578198290"
     },
     {
      "id": "7704181783213968648",
-     "views": 14400,
-     "likes": 1071,
+     "views": 14500,
+     "likes": 1081,
      "time": 1793769611,
      "url": "https://www.tiktok.com/@memaybeo50/video/7704181783213968648"
     },
     {
      "id": "7702020235892788487",
-     "views": 7801,
-     "likes": 267,
+     "views": 7891,
+     "likes": 271,
      "time": 1793266339,
      "url": "https://www.tiktok.com/@memaybeo50/video/7702020235892788487"
     },
     {
      "id": "7700439843729345810",
-     "views": 10200,
-     "likes": 549,
+     "views": 10300,
+     "likes": 550,
      "time": 1792898375,
      "url": "https://www.tiktok.com/@memaybeo50/video/7700439843729345810"
     },
     {
      "id": "7697945220058680592",
-     "views": 196400,
+     "views": 196700,
      "likes": 13000,
      "time": 1792317548,
      "url": "https://www.tiktok.com/@memaybeo50/video/7697945220058680592"
     },
     {
      "id": "7695340110388169991",
-     "views": 99200,
+     "views": 99300,
      "likes": 10100,
      "time": 1791711002,
      "url": "https://www.tiktok.com/@memaybeo50/video/7695340110388169991"
     }
    ],
-   "medianViews": 12250,
-   "estUsd": 122,
-   "estVnd": 3185000
+   "medianViews": 12500,
+   "estUsd": 125,
+   "estVnd": 3250000
   }
  }
 }
