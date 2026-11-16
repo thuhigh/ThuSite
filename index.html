@@ -121,13 +121,20 @@ footer{border-top:1px solid var(--out);margin-top:24px;padding:28px 16px}
 .upd{color:#b8b8c0;font-size:12px;margin-top:10px}
 .q{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit}.q b{font-family:var(--f-d);font-weight:600}
 .btn:disabled{opacity:.5;cursor:not-allowed}
+.prof{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.prof h1{font-size:26px;margin:0}
+.pav{width:88px;height:88px;border-radius:50%;border:3px solid var(--out);box-shadow:0 0 0 3px var(--bg);background:var(--surf) center/cover no-repeat;display:grid;place-items:center;font:700 32px var(--f-d);color:var(--var);flex:none}
+.rcs{display:flex;gap:8px;overflow-x:auto;margin-top:12px;scrollbar-width:none}.rcs:empty{display:none}
+.rc{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--out);background:var(--card);color:var(--on);border-radius:999px;padding:4px 14px 4px 4px;font:500 13px var(--f-b);cursor:pointer;white-space:nowrap}.rc:hover{background:var(--surf)}
+.rav{width:28px;height:28px;border-radius:50%;background:var(--surf) center/cover no-repeat;display:grid;place-items:center;font:700 13px var(--f-d);font-style:normal}
+#vout .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.fld{display:grid;gap:6px;margin-top:14px;font-size:14px;font-weight:500;color:var(--var)}.fld:first-child{margin-top:0}
 </style>
 </head>
 <body>
 <header>
   <span class="brand">ThuSite</span>
   <nav id="nav">
-    <a href="#home" data-i18n="nav.home"></a><a href="#discover" data-i18n="nav.discover"></a><a href="#creators" data-i18n="nav.creators"></a><a href="#tiktok" data-i18n="nav.tiktok"></a><a href="#settings" data-i18n="nav.settings"></a>
+    <a href="#home" data-i18n="nav.home"></a><a href="#tiktok" data-i18n="nav.tiktok"></a><a href="#value" data-i18n="nav.value"></a><a href="#settings" data-i18n="nav.settings"></a>
   </nav>
   <div class="seg" role="group" aria-label="Language"><button data-lang="vi">VI</button><button data-lang="en">EN</button></div>
 </header>
@@ -140,7 +147,7 @@ footer{border-top:1px solid var(--out);margin-top:24px;padding:28px 16px}
         <div class="pstats" id="stats"></div>
         <div class="upd" id="upd"></div>
         <p data-i18n="home.tag"></p>
-        <div class="row"><a class="btn" href="https://www.tiktok.com/@thu.highhh" target="_blank" rel="noopener" data-i18n="btn.follow"></a><button class="btn t" data-go="creators" data-i18n="btn.profile"></button></div>
+        <div class="row"><a class="btn" href="https://www.tiktok.com/@thu.highhh" target="_blank" rel="noopener" data-i18n="btn.follow"></a><button class="btn t" data-go="value" data-i18n="btn.value"></button></div>
         <div class="chips"><span class="st" data-i18n="home.status"></span></div>
       </div>
       <div class="hero-side">
@@ -151,6 +158,7 @@ footer{border-top:1px solid var(--out);margin-top:24px;padding:28px 16px}
     <h2 data-i18n="home.quick"></h2>
     <div class="grid" id="quick">
       <a class="card q" href="#tiktok"><b data-i18n="q.search"></b><span class="muted" data-i18n="q.searchd"></span></a>
+      <a class="card q" href="#value"><b data-i18n="nav.value"></b><span class="muted" data-i18n="q.valued"></span></a>
       <a class="card q" href="https://www.tiktok.com/@thu.highhh" target="_blank" rel="noopener"><b>TikTok</b><span class="muted" data-i18n="q.tt"></span></a>
       <div class="card q"><b>Discord</b><span class="muted" data-i18n="soon"></span></div>
     </div>
@@ -158,33 +166,31 @@ footer{border-top:1px solid var(--out);margin-top:24px;padding:28px 16px}
     <div id="feat"><div class="empty"><i>🎬</i><span data-i18n="empty.videos"></span></div></div>
   </section>
 
-  <section id="discover">
-    <h2 data-i18n="nav.discover"></h2>
-    <input class="search" id="q" type="search" data-ph="search.ph" autocomplete="off">
-    <div id="results"></div>
-    <h2 data-i18n="rank.title"></h2>
-    <div class="empty"><i>🏆</i><span data-i18n="empty.rank"></span></div>
-  </section>
-
-  <section id="creators">
-    <h2 data-i18n="nav.creators"></h2>
-    <div class="card">
-      <div class="avatar" style="width:64px;height:64px;font-size:26px">T</div>
-      <h1 style="font-size:30px;margin:12px 0 2px">Thứ High</h1>
-      <p class="muted">@thu.highhh</p>
-      <p style="margin-top:12px" data-i18n="creator.bio"></p>
-      <div class="row">
-        <a class="btn" href="https://www.tiktok.com/@thu.highhh" target="_blank" rel="noopener" data-i18n="btn.open"></a>
-        <button class="btn t" id="copy" data-i18n="btn.copy"></button>
-        <button class="btn t" id="dc" data-i18n="btn.discord"></button>
-      </div>
+  <section id="tiktok">
+    <h2 data-i18n="nav.tiktok"></h2>
+    <div class="seg" id="ttmode"><button data-mode="c" class="on" data-i18n="tt.mode.c"></button><button data-mode="t" data-i18n="tt.mode.t"></button></div>
+    <div id="pc" style="margin-top:14px">
+      <div style="display:flex;gap:8px"><input class="search" id="ttq" data-ph="tt.ph" autocomplete="off"><button class="btn cd" id="ttb" data-k="tt.btn"></button></div>
+      <div id="recent" class="rcs"></div>
+      <div id="ttres" style="margin-top:16px"></div>
+    </div>
+    <div id="pt" style="margin-top:14px;display:none">
+      <div style="display:flex;gap:8px"><input class="search" id="trq" data-ph="tr.ph" autocomplete="off"><button class="btn cd" id="trb" data-k="tt.btn"></button></div>
+      <div id="trres" style="margin-top:16px"></div>
     </div>
   </section>
 
-  <section id="tiktok">
-    <h2 data-i18n="tt.title"></h2>
-    <div style="display:flex;gap:8px"><input class="search" id="ttq" data-ph="tt.ph" autocomplete="off"><button class="btn" id="ttb" data-i18n="tt.btn"></button></div>
-    <div id="ttres" style="margin-top:16px"></div>
+  <section id="value">
+    <h2 data-i18n="v.title"></h2>
+    <p class="muted" data-i18n="v.sub"></p>
+    <div class="card" style="margin-top:14px">
+      <label class="fld"><span data-i18n="stats.followers"></span><input class="search" id="vf" type="number" min="0" inputmode="numeric"></label>
+      <label class="fld"><span data-i18n="v.views"></span><input class="search" id="vv" type="number" min="0" inputmode="numeric"></label>
+      <label class="fld"><span data-i18n="v.likes"></span><input class="search" id="vl" type="number" min="0" inputmode="numeric"></label>
+      <label class="fld"><span data-i18n="v.niche"></span><select class="search" id="vn"><option value="ent" data-i18n="n.ent"></option><option value="beauty" data-i18n="n.beauty"></option><option value="game" data-i18n="n.game"></option><option value="tech" data-i18n="n.tech"></option><option value="fin" data-i18n="n.fin"></option></select></label>
+      <div class="row"><button class="btn t" id="vfill" data-i18n="v.fill"></button></div>
+    </div>
+    <div id="vout" style="margin-top:16px"></div>
   </section>
 
   <section id="settings">
@@ -205,7 +211,7 @@ vi:{'nav.home':'Trang chủ','nav.discover':'Khám phá','nav.creators':'Ngườ
 'stats.title':'Thống kê','stats.followers':'Người theo dõi','stats.likes':'Lượt thích','stats.videos':'Video',
 'search.ph':'Tìm kiếm liên kết, nền tảng…','rank.title':'Xếp hạng','creator.bio':'Chào mừng bạn đến với trang cá nhân của mình. Theo dõi mình trên TikTok để xem video mới nhất nhé!',
 'empty.videos':'Chưa có video nổi bật.','empty.rank':'Chưa có xếp hạng nào.','empty.search':'Không tìm thấy kết quả.',
-'soon':'Sắp ra mắt','home.status':'Discord sắp ra mắt','home.note':'Bạn đang nghĩ gì…','stats.following':'Đã follow','nav.tiktok':'TikTok','tt.title':'Tìm kênh TikTok','tt.ph':'Nhập tên người dùng TikTok…','tt.btn':'Tìm','tt.hint':'Nhập tên người dùng bất kỳ. Mỗi lượt tìm cách nhau 3 phút.','tt.loading':'Đang tải dữ liệu…','tt.median':'Lượt xem trung vị','tt.est':'Ước tính 1 bài PR','tt.latest':'Video mới nhất','tt.novid':'Chưa có video nào.','stats.views':'lượt xem','e.bad':'Tên người dùng không hợp lệ.','e.nf':'Không tìm thấy kênh này.','e.net':'Không lấy được dữ liệu, hãy thử lại sau.','e.nodata':'Không tìm thấy dữ liệu cho kênh này.','tt.updated':'Cập nhật','tt.wait':'Chờ {t}','e.wait':'Bạn có thể tìm lại sau {t}.','home.quick':'Truy cập nhanh','q.search':'Tìm kênh TikTok','q.searchd':'Xem thống kê của bất kỳ kênh nào','q.tt':'Xem video mới nhất','n.lang':'Đã chuyển sang Tiếng Việt','n.copied':'Đã sao chép tên người dùng','n.soon':'Server Discord sắp ra mắt!',
+'soon':'Sắp ra mắt','home.status':'Discord sắp ra mắt','home.note':'Bạn đang nghĩ gì…','stats.following':'Đã follow','nav.tiktok':'TikTok','tt.title':'Tìm kênh TikTok','tt.ph':'Nhập tên người dùng TikTok…','tt.btn':'Tìm','tt.hint':'Nhập tên người dùng bất kỳ. Mỗi lượt tìm cách nhau 3 phút.','tt.loading':'Đang tải dữ liệu…','tt.median':'Lượt xem trung vị','tt.est':'Ước tính 1 bài PR','tt.latest':'Video mới nhất','tt.novid':'Chưa có video nào.','stats.views':'lượt xem','e.bad':'Tên người dùng không hợp lệ.','e.nf':'Không tìm thấy kênh này.','e.net':'Không lấy được dữ liệu, hãy thử lại sau.','e.nodata':'Không tìm thấy dữ liệu cho kênh này.','tt.updated':'Cập nhật','nav.value':"Định giá kênh",'btn.value':"Định giá kênh",'q.valued':"Ước tính giá trị và giá quảng cáo",'tt.mode.c':"Kênh",'tt.mode.t':"Thịnh hành",'tt.er':"Tương tác",'e.bad2':"Từ khoá không hợp lệ.",'tr.ph':"Nhập hashtag hoặc từ khoá, ví dụ fyp",'tr.hint':"Tìm hashtag hoặc từ khoá để xem mức độ thịnh hành.",'tr.views':"Tổng lượt xem",'tr.videos':"Số video",'tr.avg':"Trung bình mỗi video",'tr.nostat':"Chưa lấy được số liệu. Hãy mở trực tiếp trên TikTok.",'tr.open':"Mở hashtag trên TikTok",'tr.search':"Tìm trên TikTok",'tr.center':"Hashtag thịnh hành",'v.title':"Định giá kênh",'v.sub':"Ước tính nhanh giá trị kênh và giá một bài quảng cáo.",'v.views':"Lượt xem trung vị mỗi video",'v.likes':"Lượt thích trung bình mỗi video",'v.niche':"Lĩnh vực",'n.ent':"Giải trí",'n.beauty':"Làm đẹp và thời trang",'n.game':"Game",'n.tech':"Công nghệ",'n.fin':"Tài chính",'v.fill':"Điền từ kênh vừa tìm",'v.post':"Giá một bài quảng cáo",'v.value':"Giá trị kênh",'v.er':"Tỷ lệ tương tác",'v.note':"Chỉ là ước tính tham khảo, không phải giá thị trường.",'v.empty':"Nhập số liệu để xem định giá.",'tt.wait':'Chờ {t}','e.wait':'Bạn có thể tìm lại sau {t}.','home.quick':'Truy cập nhanh','q.search':'Tìm kênh TikTok','q.searchd':'Xem thống kê của bất kỳ kênh nào','q.tt':'Xem video mới nhất','n.lang':'Đã chuyển sang Tiếng Việt','n.copied':'Đã sao chép tên người dùng','n.soon':'Server Discord sắp ra mắt!',
 'e.copy':'Không thể sao chép. Hãy thử lại.','set.lang':'Ngôn ngữ','set.langd':'Chọn ngôn ngữ hiển thị','set.theme':'Giao diện','set.themed':'Sáng, tối hoặc theo hệ thống',
 'theme.auto':'Tự động','theme.light':'Sáng','theme.dark':'Tối','foot.made':'Được tạo với ♥ bởi Thứ High','foot.date':'Hôm nay'},
 en:{'nav.home':'Home','nav.discover':'Discover','nav.creators':'Creators','nav.settings':'Settings',
@@ -214,7 +220,7 @@ en:{'nav.home':'Home','nav.discover':'Discover','nav.creators':'Creators','nav.s
 'stats.title':'Statistics','stats.followers':'Followers','stats.likes':'Likes','stats.videos':'Videos',
 'search.ph':'Search links, platforms…','rank.title':'Rankings','creator.bio':'Welcome to my personal page. Follow me on TikTok to catch my latest videos!',
 'empty.videos':'No featured videos yet.','empty.rank':'No rankings yet.','empty.search':'No results found.',
-'soon':'Coming soon','home.status':'Discord coming soon','home.note':'What’s on your mind…','stats.following':'Following','nav.tiktok':'TikTok','tt.title':'Search TikTok','tt.ph':'Enter a TikTok username…','tt.btn':'Search','tt.hint':'Enter any username. Searches are 3 minutes apart.','tt.loading':'Loading data…','tt.median':'Median views','tt.est':'Est. price per sponsored post','tt.latest':'Latest videos','tt.novid':'No videos yet.','stats.views':'views','e.bad':'Invalid username.','e.nf':'Channel not found.','e.net':'Couldn’t get data, please try again later.','e.nodata':'No data found for this channel.','tt.updated':'Updated','tt.wait':'Wait {t}','e.wait':'You can search again in {t}.','home.quick':'Quick access','q.search':'Search TikTok','q.searchd':'Stats for any channel','q.tt':'Watch the latest videos','n.lang':'Switched to English','n.copied':'Username copied','n.soon':'Discord server is coming soon!',
+'soon':'Coming soon','home.status':'Discord coming soon','home.note':'What’s on your mind…','stats.following':'Following','nav.tiktok':'TikTok','tt.title':'Search TikTok','tt.ph':'Enter a TikTok username…','tt.btn':'Search','tt.hint':'Enter any username. Searches are 3 minutes apart.','tt.loading':'Loading data…','tt.median':'Median views','tt.est':'Est. price per sponsored post','tt.latest':'Latest videos','tt.novid':'No videos yet.','stats.views':'views','e.bad':'Invalid username.','e.nf':'Channel not found.','e.net':'Couldn’t get data, please try again later.','e.nodata':'No data found for this channel.','tt.updated':'Updated','nav.value':"Valuation",'btn.value':"Channel valuation",'q.valued':"Estimate value and sponsorship price",'tt.mode.c':"Channel",'tt.mode.t':"Trending",'tt.er':"Engagement",'e.bad2':"Invalid keyword.",'tr.ph':"Enter a hashtag or keyword, e.g. fyp",'tr.hint':"Search a hashtag or keyword to see how hot it is.",'tr.views':"Total views",'tr.videos':"Videos",'tr.avg':"Avg per video",'tr.nostat':"Couldn’t fetch stats. Open it on TikTok instead.",'tr.open':"Open hashtag on TikTok",'tr.search':"Search on TikTok",'tr.center':"Trending hashtags",'v.title':"Channel valuation",'v.sub':"Quick estimate of channel value and price per sponsored post.",'v.views':"Median views per video",'v.likes':"Avg likes per video",'v.niche':"Niche",'n.ent':"Entertainment",'n.beauty':"Beauty and fashion",'n.game':"Gaming",'n.tech':"Tech",'n.fin':"Finance",'v.fill':"Fill from last searched channel",'v.post':"Price per sponsored post",'v.value':"Channel value",'v.er':"Engagement rate",'v.note':"Reference estimate only, not a market price.",'v.empty':"Enter figures to see the valuation.",'tt.wait':'Wait {t}','e.wait':'You can search again in {t}.','home.quick':'Quick access','q.search':'Search TikTok','q.searchd':'Stats for any channel','q.tt':'Watch the latest videos','n.lang':'Switched to English','n.copied':'Username copied','n.soon':'Discord server is coming soon!',
 'e.copy':'Couldn’t copy. Please try again.','set.lang':'Language','set.langd':'Choose the display language','set.theme':'Appearance','set.themed':'Light, dark or system',
 'theme.auto':'Auto','theme.light':'Light','theme.dark':'Dark','foot.made':'Made with ♥ by Thứ High','foot.date':'Today'}};
 let lang='vi',theme='light';
@@ -224,27 +230,22 @@ const t=k=>I18N[lang][k]||k;
 const loc=()=>lang==='vi'?'vi-VN':'en-US';
 function toast(m,err){const el=$('#toast');el.textContent=m;el.className='show'+(err?' err':'');clearTimeout(toast.h);toast.h=setTimeout(()=>el.className='',2400)}
 function renderStats(){$('#stats').innerHTML=['following','followers','likes'].map(k=>`<div class="pst"><b>${STATS[k]==null?'—':new Intl.NumberFormat(loc(),{notation:STATS[k]>=10000?'compact':'standard'}).format(STATS[k])}</b><span>${t('stats.'+k)}</span></div>`).join('')}
-function renderResults(){const q=$('#q').value.trim().toLowerCase();
- const r=LINKS.filter(l=>!q||(l.name+' '+(l.handle||'')).toLowerCase().includes(q)||(!l.handle&&t('soon').toLowerCase().includes(q)));
- $('#results').innerHTML=r.length?r.map(l=>`<${l.url?'a href="'+l.url+'" target="_blank" rel="noopener"':'div'} class="item"><div class="ic">${l.name[0]}</div><div><b>${l.name}</b><small>${l.handle||t('soon')}</small></div></${l.url?'a':'div'}>`).join(''):`<div class="empty" style="margin-top:10px"><i>🔍</i>${t('empty.search')}</div>`}
 function apply(){document.documentElement.lang=lang;
  $$('[data-i18n]').forEach(e=>e.textContent=t(e.dataset.i18n));
  $$('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
  $$('[data-lang]').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
  $$('[data-theme]').forEach(b=>b.classList.toggle('on',b.dataset.theme===theme));
  $('#date').textContent=t('foot.date')+': '+new Intl.DateTimeFormat(loc(),{dateStyle:'long'}).format(new Date());
- renderStats();renderResults();renderTT();renderFeat();renderUpd();tick()}
+ renderStats();renderTT();renderRecent();renderTrend();renderFeat();renderUpd();calcVal();tick()}
 function setLang(l,quiet){lang=l;try{localStorage.setItem('thusite.lang',l)}catch(e){}apply();if(!quiet)toast(t('n.lang'))}
 function setTheme(x){theme=x;try{localStorage.setItem('thusite.theme',x)}catch(e){}
  if(x==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.dataset.theme=x;apply()}
-function route(){const id=(location.hash||'#home').slice(1);const v=['home','discover','creators','tiktok','settings'].includes(id)?id:'home';
+function route(){const id=(location.hash||'#home').slice(1);const v=['home','tiktok','value','settings'].includes(id)?id:'home';
  $$('section').forEach(s=>s.classList.toggle('on',s.id===v));$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+v))}
 $$('[data-lang]').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
 $$('[data-theme]').forEach(b=>b.onclick=()=>setTheme(b.dataset.theme));
 $$('[data-go]').forEach(b=>b.onclick=()=>location.hash=b.dataset.go);
-$('#q').oninput=renderResults;
-$('#dc').onclick=()=>toast(t('n.soon'));
-$('#copy').onclick=async()=>{try{await navigator.clipboard.writeText('@thu.highhh');toast(t('n.copied'))}catch(e){toast(t('e.copy'),true)}};
+const USD_VND=26000;
 const WORKER_URL='https://workers.thu-high-01.workers.dev/'; // dán URL Cloudflare Worker / paste your Cloudflare Worker URL
 const DATA_URL='data/tiktok.json'; // do GitHub Actions cập nhật / updated by GitHub Actions
 let DB=null;
@@ -253,7 +254,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
 let tt={s:'idle'};
 let next=0;try{next=+localStorage.getItem('thusite.next')||0}catch(e){}
 const fmt=n=>Math.floor(n/60)+':'+String(n%60).padStart(2,'0');
-function tick(){const b=$('#ttb');if(!b)return;const l=Math.ceil((next-Date.now())/1000);b.disabled=l>0;b.textContent=l>0?t('tt.wait').replace('{t}',fmt(l)):t('tt.btn')}
+function tick(){const l=Math.ceil((next-Date.now())/1000);$$('.cd').forEach(b=>{b.disabled=l>0;b.textContent=l>0?t('tt.wait').replace('{t}',fmt(l)):t(b.dataset.k)})}
 setInterval(tick,1000);
 async function searchTT(){const u=$('#ttq').value.trim().replace(/^@/,'').toLowerCase();
  const l=Math.ceil((next-Date.now())/1000);if(l>0)return toast(t('e.wait').replace('{t}',fmt(l)),true);
@@ -264,21 +265,53 @@ async function searchTT(){const u=$('#ttq').value.trim().replace(/^@/,'').toLowe
  if(WORKER_URL){try{const r=await fetch(WORKER_URL+'?user='+encodeURIComponent(u));if(r.ok)d=await r.json();else ok=r.status===404}catch(e){ok=false}}
  else{const db=DB||await loadDB();ok=!!db;d=db&&db.accounts&&db.accounts[u];if(db)upd=db.updated}
  tt=!ok?{s:'err',e:'e.net'}:d?{s:'ok',d,u:d.updated||upd}:{s:'err',e:'e.nodata'};
- renderTT()}
+ if(d)saveRecent(d,d.updated||upd);renderTT()}
 function renderFeat(){const a=DB&&DB.accounts&&DB.accounts['thu.highhh'],v=a&&a.videos;if(!v||!v.length)return;const nf=new Intl.NumberFormat(loc()),df=new Intl.DateTimeFormat(loc(),{dateStyle:'medium'});
  $('#feat').innerHTML=[...v].sort((x,y)=>y.views-x.views).slice(0,3).map(x=>`<a class="item" href="${esc(x.url)}" target="_blank" rel="noopener"><div class="ic">▶</div><div><b>${nf.format(x.views)} ${t('stats.views')} · ${nf.format(x.likes)} ${t('stats.likes')}</b><small>${df.format(new Date(x.time*1000))}</small></div></a>`).join('')}
 function renderUpd(){const e=$('#upd');if(e&&DB&&DB.updated)e.textContent=t('tt.updated')+': '+new Intl.DateTimeFormat(loc(),{dateStyle:'medium',timeStyle:'short'}).format(new Date(DB.updated))}
+function cool(){const l=Math.ceil((next-Date.now())/1000);if(l>0){toast(t('e.wait').replace('{t}',fmt(l)),true);return true}return false}
+function startCool(){next=Date.now()+180000;try{localStorage.setItem('thusite.next',next)}catch(e){}tick()}
+const avOf=d=>{const p=d.profile||{};return d.username==='thu.highhh'?'var(--av)':p.avatar&&/^data:image\/(jpeg|png|webp);base64,[\w+\/=]+$/.test(p.avatar)?'url('+p.avatar+')':''};
+let RC=[];try{RC=JSON.parse(localStorage.getItem('thusite.recent')||'[]')}catch(e){}
+function saveRecent(d,u){RC=[{d,u},...RC.filter(x=>x.d.username!==d.username)].slice(0,5);try{localStorage.setItem('thusite.recent',JSON.stringify(RC))}catch(e){}renderRecent()}
+function renderRecent(){const el=$('#recent');if(!el)return;el.innerHTML=RC.map((x,i)=>`<button class="rc" data-i="${i}"><i class="rav" style="background-image:${avOf(x.d)}">${avOf(x.d)?'':esc(x.d.username[0].toUpperCase())}</i>@${esc(x.d.username)}</button>`).join('')}
+let tr={s:'idle'};
+function renderTrend(){const el=$('#trres');if(!el)return;const box=(i,m)=>`<div class="empty"><i>${i}</i>${m}</div>`,nf=new Intl.NumberFormat(loc(),{notation:'compact'});
+ const links=q=>`<div class="row" style="margin-top:14px">${q?`<a class="btn" href="https://www.tiktok.com/tag/${encodeURIComponent(q)}" target="_blank" rel="noopener">${t('tr.open')}</a><a class="btn t" href="https://www.tiktok.com/search?q=${encodeURIComponent(q)}" target="_blank" rel="noopener">${t('tr.search')}</a>`:''}<a class="btn t" href="https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en" target="_blank" rel="noopener">${t('tr.center')}</a></div>`;
+ if(tr.s==='idle')return el.innerHTML=box('📈',t('tr.hint'))+links('');
+ if(tr.s==='load')return el.innerHTML=box('⏳',t('tt.loading'));
+ if(tr.s==='err')return el.innerHTML=box('⚠️',t(tr.e));
+ const d=tr.d;
+ el.innerHTML=`<div class="card"><h1 style="font-size:26px;margin:0">#${esc(d?d.title:tr.q)}</h1>${d&&d.desc?`<p class="muted" style="margin-top:6px">${esc(d.desc)}</p>`:''}</div>`+(d?`<div class="grid" style="margin-top:12px"><div class="card stat"><b>${nf.format(d.viewCount)}</b><span>${t('tr.views')}</span></div><div class="card stat"><b>${nf.format(d.videoCount)}</b><span>${t('tr.videos')}</span></div><div class="card stat"><b>${d.videoCount?nf.format(d.viewCount/d.videoCount):'—'}</b><span>${t('tr.avg')}</span></div></div>`:`<p class="muted" style="margin-top:12px">${t('tr.nostat')}</p>`)+links(tr.q)}
+async function searchTrend(){const q=$('#trq').value.trim().replace(/^#/,'').replace(/\s+/g,'').toLowerCase();
+ if(cool())return;
+ if(!/^[\p{L}\p{N}_]{1,40}$/u.test(q)){tr={s:'err',e:'e.bad2'};return renderTrend()}
+ startCool();tr={s:'load'};renderTrend();
+ let d=null;if(WORKER_URL){try{const r=await fetch(WORKER_URL+'?tag='+encodeURIComponent(q));if(r.ok)d=await r.json()}catch(e){}}
+ tr={s:'ok',d,q};renderTrend()}
+const NICHE={ent:1,beauty:1.3,game:1.2,tech:1.6,fin:2};
+function calcVal(){const out=$('#vout');if(!out)return;const f=+$('#vf').value,v=+$('#vv').value,l=+$('#vl').value,n=NICHE[$('#vn').value]||1;
+ if(!(f>0&&v>0)){out.innerHTML=`<div class="empty"><i>🧮</i>${t('v.empty')}</div>`;return}
+ const er=l>0?Math.min(l/v,1):null,erf=er==null?1:er>.08?1.2:er<.03?.8:1,post=v/1000*10*n*erf,lo=f*.01*n,hi=f*.04*n*erf;
+ const m=x=>lang==='vi'?new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(x*USD_VND):new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(x);
+ out.innerHTML=`<div class="grid"><div class="card stat"><b>${m(post)}</b><span>${t('v.post')}</span></div><div class="card stat"><b>${m(lo)} – ${m(hi)}</b><span>${t('v.value')}</span></div><div class="card stat"><b>${er==null?'—':new Intl.NumberFormat(loc(),{style:'percent',maximumFractionDigits:1}).format(er)}</b><span>${t('v.er')}</span></div></div><p class="muted" style="margin-top:12px;font-size:13px">${t('v.note')}</p>`}
+function fillVal(){const d=tt.s==='ok'?tt.d:DB&&DB.accounts&&DB.accounts['thu.highhh'];if(!d||!d.profile)return toast(t('e.nodata'),true);
+ const vs=d.videos||[];$('#vf').value=d.profile.followers||'';$('#vv').value=d.medianViews||'';$('#vl').value=vs.length?Math.round(vs.reduce((a,x)=>a+x.likes,0)/vs.length):'';calcVal()}
 function renderTT(){const el=$('#ttres');if(!el)return;
  const nf=new Intl.NumberFormat(loc()),box=(i,m)=>`<div class="empty"><i>${i}</i>${m}</div>`;
  if(tt.s==='idle')return el.innerHTML=box('🔎',t('tt.hint'));
  if(tt.s==='load')return el.innerHTML=box('⏳',t('tt.loading'));
  if(tt.s==='err')return el.innerHTML=box('⚠️',t(tt.e).replace('{t}',tt.x||''));
- const d=tt.d,p=d.profile||{},df=new Intl.DateTimeFormat(loc(),{dateStyle:'medium'});
+ const d=tt.d,p=d.profile||{},df=new Intl.DateTimeFormat(loc(),{dateStyle:'medium'}),vs=d.videos||[],sv=vs.reduce((a,x)=>a+x.views,0),er=sv?vs.reduce((a,x)=>a+x.likes,0)/sv:null,pf=new Intl.NumberFormat(loc(),{style:'percent',maximumFractionDigits:1});
  const money=d.estUsd==null?'—':lang==='vi'?new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(d.estVnd):new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(d.estUsd);
- el.innerHTML=`<div class="card"><h1 style="font-size:28px;margin:0">${esc(p.nickname||d.username)}</h1><p class="muted">@${esc(d.username)}</p></div>
- <div class="grid" style="margin-top:12px">${[['stats.followers',p.followers],['stats.likes',p.likes],['tt.median',d.medianViews]].map(([k,v])=>`<div class="card stat"><b>${v==null?'—':nf.format(v)}</b><span>${t(k)}</span></div>`).join('')}<div class="card stat"><b>${money}</b><span>${t('tt.est')}</span></div></div>
+ el.innerHTML=`<div class="card prof"><div class="pav" style="background-image:${avOf(d)}">${avOf(d)?'':esc((p.nickname||d.username)[0].toUpperCase())}</div><div style="flex:1;min-width:0"><h1>${esc(p.nickname||d.username)}</h1><p class="muted">@${esc(d.username)}</p></div><a class="btn t" href="https://www.tiktok.com/@${esc(d.username)}" target="_blank" rel="noopener">${t('btn.open')}</a></div>
+ <div class="grid" style="margin-top:12px">${[['stats.followers',p.followers],['stats.likes',p.likes],['tt.median',d.medianViews]].map(([k,v])=>`<div class="card stat"><b>${v==null?'—':nf.format(v)}</b><span>${t(k)}</span></div>`).join('')}<div class="card stat"><b>${er==null?'—':pf.format(er)}</b><span>${t('tt.er')}</span></div><div class="card stat"><b>${money}</b><span>${t('tt.est')}</span></div></div>
  <p class="muted" style="margin-top:10px">${t('tt.updated')}: ${tt.u?new Intl.DateTimeFormat(loc(),{dateStyle:'medium',timeStyle:'short'}).format(new Date(tt.u)):'—'}</p><h2>${t('tt.latest')}</h2>${d.videos.length?d.videos.map(v=>`<a class="item" href="${esc(v.url)}" target="_blank" rel="noopener"><div class="ic">▶</div><div><b>${nf.format(v.views)} ${t('stats.views')} · ${nf.format(v.likes)} ${t('stats.likes')}</b><small>${df.format(new Date(v.time*1000))}</small></div></a>`).join(''):box('🎬',t('tt.novid'))}`}
 $('#ttb').onclick=searchTT;$('#ttq').onkeydown=e=>{if(e.key==='Enter')searchTT()};
+$('#trb').onclick=searchTrend;$('#trq').onkeydown=e=>{if(e.key==='Enter')searchTrend()};
+$('#recent').onclick=e=>{const b=e.target.closest('.rc');if(!b)return;const x=RC[+b.dataset.i];if(x){tt={s:'ok',d:x.d,u:x.u};renderTT()}};
+$$('#ttmode button').forEach(b=>b.onclick=()=>{$$('#ttmode button').forEach(x=>x.classList.toggle('on',x===b));$('#pc').style.display=b.dataset.mode==='c'?'':'none';$('#pt').style.display=b.dataset.mode==='t'?'':'none'});
+['#vf','#vv','#vl','#vn'].forEach(q=>$(q).oninput=calcVal);$('#vfill').onclick=fillVal;
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){const e=x.target;e.classList.add('in');io.unobserve(e);setTimeout(()=>{e.classList.remove('reveal','in');e.style.transitionDelay=''},900)}}),{threshold:.1}):null;
 function reveal(){if(!io)return;$$('.hero,.card,.item,.empty,.set,main h2').forEach((e,i)=>{if(e.dataset.r)return;e.dataset.r=1;e.style.transitionDelay=Math.min(i%6,5)*60+'ms';e.classList.add('reveal');io.observe(e)})}
 new MutationObserver(()=>requestAnimationFrame(reveal)).observe($('main'),{childList:true,subtree:true});reveal();
