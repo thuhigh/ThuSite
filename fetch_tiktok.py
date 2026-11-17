@@ -1,5 +1,5 @@
-"""Chạy bởi GitHub Actions / Run by GitHub Actions: ghi data/tiktok.json."""
-import asyncio, json, os, re, statistics, time
+"""Chạy bởi GitHub Actions / Run by GitHub Actions: ghi data/tiktok.json (kèm lịch sử follower)."""
+import asyncio, json, os, re, statistics
 from datetime import datetime, timezone
 import aiohttp
 
@@ -41,9 +41,10 @@ async def latest_videos(user, need=8):
             d = script_json(h, "__UNIVERSAL_DATA_FOR_REHYDRATION__")
             try:
                 it = d["__DEFAULT_SCOPE__"]["webapp.video-detail"]["itemInfo"]["itemStruct"]
-                st = it["stats"]
+                st, v = it["stats"], it.get("video") or {}
                 return {"id": vid, "views": int(st.get("playCount", 0)), "likes": int(st.get("diggCount", 0)),
                         "time": int(it.get("createTime", int(vid) >> 32)),
+                        "cover": v.get("cover") or v.get("originCover"),
                         "url": f"https://www.tiktok.com/@{user}/video/{vid}"}
             except Exception:
                 return None
@@ -75,17 +76,22 @@ async def one_account(user):
 async def main():
     users = [l.strip().lstrip("@").lower() for l in open("accounts.txt", encoding="utf-8") if l.strip() and not l.startswith("#")]
     try:
-        old = json.load(open(OUT, encoding="utf-8")).get("accounts", {})
+        db = json.load(open(OUT, encoding="utf-8"))
     except Exception:
-        old = {}
-    new = dict(old)  # lỗi thì giữ dữ liệu cũ / keep old data on failure
+        db = {}
+    new, hist = dict(db.get("accounts", {})), db.get("history", {})  # lỗi thì giữ dữ liệu cũ
+    now = datetime.now(timezone.utc).isoformat()
     for u, r in zip(users, await asyncio.gather(*(one_account(u) for u in users))):
-        if r:
-            new[u] = r
-        else:
+        if not r:
             print("failed:", u)
+            continue
+        new[u] = r
+        p = r.get("profile")
+        if p:
+            h = hist.setdefault(u, [])
+            h.append({"t": now, "f": p["followers"], "g": p["following"], "l": p["likes"]})
+            del h[:-240]  # ~60 ngày / ~60 days
     os.makedirs("data", exist_ok=True)
-    json.dump({"updated": datetime.now(timezone.utc).isoformat(), "accounts": new},
-              open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump({"updated": now, "accounts": new, "history": hist}, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 asyncio.run(main())
