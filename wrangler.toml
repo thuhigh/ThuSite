@@ -1,0 +1,8 @@
+# Cloudflare tự đọc file này khi bạn đẩy code lên GitHub
+name = "workers"            # PHẢI trùng tên Worker trong dashboard (xem ở Workers & Pages)
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "VISITS"
+id = "DAN_ID_KV_VAO_DAY"    # KV -> bấm vào namespace -> copy "ID"
