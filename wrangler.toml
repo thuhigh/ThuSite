@@ -1,5 +1,5 @@
 # Cloudflare tự đọc file này khi bạn đẩy code lên GitHub
-name = "workers"            # PHẢI trùng tên Worker trong dashboard (xem ở Workers & Pages)
+name = "thusite"            # PHẢI trùng tên Worker trong dashboard (xem ở Workers & Pages)
 main = "worker.js"
 compatibility_date = "2025-01-01"
 
