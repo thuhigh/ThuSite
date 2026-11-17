@@ -5,4 +5,4 @@ compatibility_date = "2025-01-01"
 
 [[kv_namespaces]]
 binding = "VISITS"
-id = "DAN_ID_KV_VAO_DAY"    # KV -> bấm vào namespace -> copy "ID"
+id = "69960237425f45d799233b1bb2ff1d97"    # KV -> bấm vào namespace -> copy "ID"
